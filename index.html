@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hockey Website with Tailwind and Daisy</title>
+    <!--Tailwind and Daisy CDN-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.14/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Tailwind Custom Color-->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {},
+          },
+        },
+      };
+    </script>
+    <!--Font Awesome-->
+    <script
+      src="https://kit.fontawesome.com/e2d6543f07.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--Manrope google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <!--css-->
+    <style>
+      .manrope-font {
+        font-family: "Manrope", sans-serif;
+        font-optical-sizing: auto;
+      }
+      .radial-progress:after {
+        inset: calc(49% - var(--thickness) / 2);
+        transform: rotate(calc(var(--value) * 3.6deg - 90deg))
+          translate(calc(var(--size) / 2 - -150%));
+        background-color: currentColor;
+      }
+    </style>
+  </head>
+  <body class="manrope-font">
+    <header class="py-5 lg:py-9">
+      <div class="navbar bg-base-100 lg:w-[1170px] mx-auto w-[335px]">
+        <div class="navbar-start">
+          <div class="dropdown text-[#424247] text-[16px]">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost lg:hidden pl-0"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            >
+              <li><a class="text-red-500 font-semibold">Home</a></li>
+              <li>
+                <a>About</a>
+              </li>
+              <li><a>Pages</a></li>
+              <li><a>Blog</a></li>
+              <li><a>Contact</a></li>
+            </ul>
+          </div>
+          <a
+            class="btn btn-ghost font-extrabold text-2xl lg:text-4xl p-0 hover:bg-transparent"
+            >Hockey<span class="text-red-500 -ml-2 -mr-3 font-extrabold">’</span
+            >s</a
+          >
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1 text-[#424247]">
+            <li><a class="text-red-500 font-semibold">Home</a></li>
+            <li>
+              <a>About</a>
+            </li>
+            <li><a>Pages</a></li>
+            <li><a>Blog</a></li>
+            <li><a>Contact</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <label
+            class="input flex items-center gap-0 border-none bg-transparent hover:bg-slate-100 mr-2 lg:mr-3 focus-within:outline-none"
+          >
+            <input
+              type="text"
+              class="grow w-32 lg:w-auto text-[14px] font-medium text-slate-500"
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              class="h-6 w-6 opacity-50"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </label>
+
+          <a class="btn lg:btn-lg bg-red-500 text-white hover:text-red-500"
+            >Get Ticket</a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="lg:w-[1170px] mx-auto w-[335px]">
+      <!--Hero Carousel Starts Here-->
+      <div class="carousel w-full h-[200px] lg:h-auto rounded-2xl">
+        <div id="slide1" class="carousel-item relative w-full">
+          <img src="Images\1.png" class="w-auto lg:w-full" />
+          <div
+            class="absolute left-5 right-5 top-1/2 -translate-y-1/2 transform flex lg:justify-start h-[200px] lg:h-[550px] lg:items-end pb-2 lg:pb-5 justify-center items-end"
+          >
+            <div>
+              <a
+                href="#slide2"
+                class="btn btn-sm bg-[#131318] text-white border-0 lg:btn-md btn-circle mx-1 hover:bg-red-500"
+                >❮</a
+              >
+              <a
+                href="#slide2"
+                class="btn btn-sm bg-[#131318] text-white border-0 lg:btn-md btn-circle mx-1 hover:bg-red-500"
+                >❯</a
+              >
+            </div>
+          </div>
+        </div>
+        <div id="slide2" class="carousel-item relative w-full">
+          <img src="Images\4.png" class="lg:w-auto" />
+          <div
+            class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform lg:justify-start h-[200px] lg:h-[550px] lg:items-end pb-2 lg:pb-5 justify-center items-end"
+          >
+            <a
+              href="#slide1"
+              class="btn btn-sm bg-[#131318] text-white border-0 lg:btn-md btn-circle mx-1 hover:bg-red-500"
+              >❮</a
+            >
+            <a
+              href="#slide1"
+              class="btn btn-circle btn-sm bg-[#131318] text-white border-0 lg:btn-md mx-1 hover:bg-red-500"
+              >❯</a
+            >
+          </div>
+        </div>
+      </div>
+      <!--Carousel Bottom Banner-->
+      <div
+        class="card bg-[#131318] text-neutral-content w-auto h-[137px] mt-3 lg:w-[565px] lg:h-[165px] lg:ml-auto lg:mr-10 lg:-mt-52 lg:mb-36 mb-9"
+      >
+        <div class="card-body items-start lg:align-middle p-4 lg:p-10">
+          <h2 class="card-title text-[18px]">
+            Meet all the heroes from the field
+          </h2>
+          <p class="text-[14px] text-[#FFFFFF99] leading-6">
+            Dit amet consectetur. Condimentum dignissim adipiscing aliquam
+            turpis placerat dolor. Purus urna in sit nullam proin.
+          </p>
+        </div>
+      </div>
+      <!--Professional Hockeys Club-->
+      <div
+        class="card bg-base-100 w-auto border-dashed border-2 border-x-0 rounded-none h-[166px] lg:h-[219px] justify-center"
+      >
+        <div class="card-body text-center flex-grow-0 lg:gap-4 lg:pt-0">
+          <h2 class="card-title mx-auto font-extrabold lg:text-4xl">
+            Professional Hockeys Club
+          </h2>
+          <p
+            class="lg:h-7 lg:w-[602px] mx-auto text-[14px] lg:text-[16px] text-[#13131899] font-medium"
+          >
+            Dit amet consectetur. Condimentum dignissim adipiscing aliquam
+            turpis placerat dolor. Purus urna in sit nullam proin.
+          </p>
+        </div>
+      </div>
+      <!--Progress Bar Starts Here-->
+      <div
+        class="grid lg:grid-cols-4 gap-4 text-center border-dashed border-b-2 items-center py-14"
+      >
+        <div>
+          <div
+            class="radial-progress font-extrabold lg:text-[28px] p-5 text-[#FF4240]"
+            style="--value: 87"
+            role="progressbar"
+          >
+            <span class="text-black">87%</span>
+          </div>
+          <div class="card bg-base-100">
+            <div class="card-body p-2 pt-7">
+              <h2 class="card-title mx-auto font-semibold text-xl">
+                Card title!
+              </h2>
+              <p class="text-[#13131899] text-[16px] mt-2">
+                Amet consectetur. Condimentum dignissim adipiscing .
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="radial-progress font-extrabold lg:text-[28px] p-5 text-[#49D293]"
+            style="--value: 87"
+            role="progressbar"
+          >
+            <span class="text-black">87%</span>
+          </div>
+          <div class="card bg-base-100">
+            <div class="card-body p-2 pt-7">
+              <h2 class="card-title mx-auto font-semibold text-xl">
+                Card title!
+              </h2>
+              <p class="text-[#13131899] text-[16px] mt-2">
+                Amet consectetur. Condimentum dignissim adipiscing .
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="radial-progress font-extrabold lg:text-[28px] p-5 text-[#FFB546]"
+            style="--value: 87"
+            role="progressbar"
+          >
+            <span class="text-black">87%</span>
+          </div>
+          <div class="card bg-base-100">
+            <div class="card-body p-2 pt-7">
+              <h2 class="card-title mx-auto font-semibold text-xl">
+                Card title!
+              </h2>
+              <p class="text-[#13131899] text-[16px] mt-2">
+                Amet consectetur. Condimentum dignissim adipiscing .
+              </p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="radial-progress font-extrabold lg:text-[28px] p-5 text-[#4C8DF1]"
+            style="--value: 87"
+            role="progressbar"
+          >
+            <span class="text-black">87%</span>
+          </div>
+          <div class="card bg-base-100">
+            <div class="card-body p-2 pt-7">
+              <h2 class="card-title mx-auto font-semibold text-xl">
+                Card title!
+              </h2>
+              <p class="text-[#13131899] text-[16px] mt-2">
+                Amet consectetur. Condimentum dignissim adipiscing .
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Program Sections-->
+      <div
+        class="card bg-base-100 w-auto border-dashed border-2 border-x-0 border-t-0 rounded-none h-[166px] lg:h-[189px] justify-center"
+      >
+        <div class="card-body text-center flex-grow-0 lg:gap-4 lg:pt-0">
+          <h2 class="card-title mx-auto font-extrabold lg:text-4xl">
+            Program Sections
+          </h2>
+          <p
+            class="lg:h-7 lg:w-[602px] mx-auto text-[14px] lg:text-[16px] text-[#13131899] font-medium"
+          >
+            Dit amet consectetur. Condimentum dignissim adipiscing aliquam
+            turpis placerat dolor. Purus urna in sit nullam proin.
+          </p>
+        </div>
+      </div>
+      <!--Programs Grid Starts Here-->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-10 pb-16 border-dashed border-b-2"
+      >
+        <div
+          class="hero h-[244px] lg:h-[338px] rounded-2xl"
+          style="background-image: url(Images/2.png)"
+        >
+          <div
+            class="hero-overlay bg-neutral-950 bg-opacity-40 rounded-2xl justify-start items-start"
+          ></div>
+          <div class="hero-content text-white mr-auto my-auto pl-7 lg:pl-14">
+            <div class="max-w-md">
+              <h1
+                class="mb-2 lg:mb-5 text-[20px] lg:text-[28px] font-extrabold"
+              >
+                Professional Program
+              </h1>
+              <p class="mb-5 text-[14px] lg:text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna. Id et sed euismod natoque
+                amet nunc morbi nulla. Tortor congue sed et in.
+              </p>
+              <button
+                class="btn bg-[#FF4240] text-white border-0 hover:text-[#FF4240]"
+              >
+                Register Now!
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hero h-[244px] lg:h-[338px] rounded-2xl"
+          style="background-image: url(Images/3.png)"
+        >
+          <div
+            class="hero-overlay bg-neutral-950 bg-opacity-40 rounded-2xl justify-start items-start"
+          ></div>
+          <div class="hero-content text-white mr-auto lg:my-auto pl-7 lg:pl-14">
+            <div class="max-w-md">
+              <h1
+                class="mb-2 lg:mb-5 text-[20px] lg:text-[28px] font-extrabold"
+              >
+                Professional Program
+              </h1>
+              <p class="mb-5 text-[14px] lg:text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna. Id et sed euismod natoque
+                amet nunc morbi nulla. Tortor congue sed et in.
+              </p>
+              <button
+                class="btn bg-[#FF4240] text-white border-0 hover:text-[#FF4240]"
+              >
+                Register Now!
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="hero lg:col-span-2 h-[244px] lg:h-[450px] rounded-2xl"
+          style="background-image: url(Images/4.png)"
+        >
+          <div
+            class="hero-overlay bg-neutral-950 bg-opacity-40 rounded-2xl lg:w-[1170px] justify-start items-start"
+          ></div>
+          <div
+            class="hero-content text-white mr-auto lg:mt-auto pl-7 lg:pl-14 lg:pb-14"
+          >
+            <div class="max-w-md">
+              <h1
+                class="mb-2 lg:mb-5 text-[20px] lg:text-[28px] font-extrabold"
+              >
+                Professional Program
+              </h1>
+              <p class="mb-5 text-[14px] lg:text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna. Id et sed euismod natoque
+                amet nunc morbi nulla. Tortor congue sed et in.
+              </p>
+              <button
+                class="btn bg-[#FF4240] text-white border-0 hover:text-[#FF4240]"
+              >
+                Register Now!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Our New Products Section-->
+      <div
+        class="card bg-base-100 w-auto border-dashed border-2 border-x-0 border-t-0 rounded-none h-[166px] lg:h-[189px] justify-center"
+      >
+        <div class="card-body text-center flex-grow-0 lg:gap-4 lg:pt-0">
+          <h2 class="card-title mx-auto font-extrabold lg:text-4xl">
+            Our New Products
+          </h2>
+          <p
+            class="lg:h-7 lg:w-[602px] mx-auto text-[14px] lg:text-[16px] text-[#13131899] font-medium"
+          >
+            Dit amet consectetur. Condimentum dignissim adipiscing aliquam
+            turpis placerat dolor. Purus urna in sit nullam proin.
+          </p>
+        </div>
+      </div>
+      <!--Product Lists Starts Here-->
+      <div class="grid lg:grid-cols-2 py-16 gap-5">
+        <a href="#">
+          <div
+            class="card lg:card-side bg-base-100 lg:w-[573px] lg:h-[218px] shadow-none border border-[#1313181A] rounded-2xl lg:px-5"
+          >
+            <figure class="w-full lg:w-[250px] lg:h-[172px] my-5 lg:my-auto">
+              <img
+                src="Images\5.png"
+                alt="Movie"
+                class="w-auto lg:w-[180px] mr-auto ml-5 lg:mr-5"
+              />
+            </figure>
+            <div
+              class="card-body justify-center px-3 pt-2 lg:pt-6 pb-5 space-y-1"
+            >
+              <p class="flex-grow-0 space-x-5 text-[#13131880]">
+                <i class="fa-solid fa-star pr-2 text-[#F99808]"></i>5.0
+                <i class="fa-solid fa-eye pr-2"></i>20
+                <i class="fa-regular fa-heart pr-2"></i>200
+              </p>
+              <h2 class="card-title font-extrabold text-[20px]">
+                World Cup Flags Football
+              </h2>
+              <p class="flex-grow-0 text-[#13131899] font-medium text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis.
+              </p>
+              <p
+                class="flex-grow-0 space-x-4 text-[16px] text-[#13131880] font-medium"
+              >
+                <span class="text-[18px] text-[#FF4240] font-extrabold"
+                  >Price - $22.00</span
+                >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Delivery Fee : Free
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div
+            class="card lg:card-side bg-base-100 lg:w-[573px] lg:h-[218px] shadow-none border border-[#1313181A] rounded-2xl lg:px-5"
+          >
+            <figure class="w-full lg:w-[250px] lg:h-[172px] my-5 lg:my-auto">
+              <img
+                src="Images\6.png"
+                alt="Movie"
+                class="w-auto lg:w-[180px] mr-auto ml-5 lg:mr-5"
+              />
+            </figure>
+            <div
+              class="card-body justify-center px-3 pt-2 lg:pt-6 pb-5 space-y-1"
+            >
+              <p class="flex-grow-0 space-x-5 text-[#13131880]">
+                <i class="fa-solid fa-star pr-2 text-[#F99808]"></i>5.0
+                <i class="fa-solid fa-eye pr-2"></i>20
+                <i class="fa-regular fa-heart pr-2"></i>200
+              </p>
+              <h2 class="card-title font-extrabold text-[20px]">
+                World Cup Flags Football
+              </h2>
+              <p class="flex-grow-0 text-[#13131899] font-medium text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis.
+              </p>
+              <p
+                class="flex-grow-0 space-x-4 text-[16px] text-[#13131880] font-medium"
+              >
+                <span class="text-[18px] text-[#FF4240] font-extrabold"
+                  >Price - $22.00</span
+                >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Delivery Fee : Free
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div
+            class="card lg:card-side bg-base-100 lg:w-[573px] lg:h-[218px] shadow-none border border-[#1313181A] rounded-2xl lg:px-5"
+          >
+            <figure class="w-full lg:w-[250px] lg:h-[172px] my-5 lg:my-auto">
+              <img
+                src="Images\7.png"
+                alt="Movie"
+                class="w-auto lg:w-[180px] mr-auto ml-5 lg:mr-5"
+              />
+            </figure>
+            <div
+              class="card-body justify-center px-3 pt-2 lg:pt-6 pb-5 space-y-1"
+            >
+              <p class="flex-grow-0 space-x-5 text-[#13131880]">
+                <i class="fa-solid fa-star pr-2 text-[#F99808]"></i>5.0
+                <i class="fa-solid fa-eye pr-2"></i>20
+                <i class="fa-regular fa-heart pr-2"></i>200
+              </p>
+              <h2 class="card-title font-extrabold text-[20px]">
+                World Cup Flags Football
+              </h2>
+              <p class="flex-grow-0 text-[#13131899] font-medium text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis.
+              </p>
+              <p
+                class="flex-grow-0 space-x-4 text-[16px] text-[#13131880] font-medium"
+              >
+                <span class="text-[18px] text-[#FF4240] font-extrabold"
+                  >Price - $22.00</span
+                >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Delivery Fee : Free
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div
+            class="card lg:card-side bg-base-100 lg:w-[573px] lg:h-[218px] shadow-none border border-[#1313181A] rounded-2xl lg:px-5"
+          >
+            <figure class="w-full lg:w-[250px] lg:h-[172px] my-5 lg:my-auto">
+              <img
+                src="Images\8.png"
+                alt="Movie"
+                class="w-auto lg:w-[180px] mr-auto ml-5 lg:mr-5"
+              />
+            </figure>
+            <div
+              class="card-body justify-center px-3 pt-2 lg:pt-6 pb-5 space-y-1"
+            >
+              <p class="flex-grow-0 space-x-5 text-[#13131880]">
+                <i class="fa-solid fa-star pr-2 text-[#F99808]"></i>5.0
+                <i class="fa-solid fa-eye pr-2"></i>20
+                <i class="fa-regular fa-heart pr-2"></i>200
+              </p>
+              <h2 class="card-title font-extrabold text-[20px]">
+                World Cup Flags Football
+              </h2>
+              <p class="flex-grow-0 text-[#13131899] font-medium text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis.
+              </p>
+              <p
+                class="flex-grow-0 space-x-4 text-[16px] text-[#13131880] font-medium"
+              >
+                <span class="text-[18px] text-[#FF4240] font-extrabold"
+                  >Price - $22.00</span
+                >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Delivery Fee : Free
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div
+            class="card lg:card-side bg-base-100 lg:w-[573px] lg:h-[218px] shadow-none border border-[#1313181A] rounded-2xl lg:px-5"
+          >
+            <figure class="w-full lg:w-[250px] lg:h-[172px] my-5 lg:my-auto">
+              <img
+                src="Images\9.png"
+                alt="Movie"
+                class="w-auto lg:w-[180px] mr-auto ml-5 lg:mr-5"
+              />
+            </figure>
+            <div
+              class="card-body justify-center px-3 pt-2 lg:pt-6 pb-5 space-y-1"
+            >
+              <p class="flex-grow-0 space-x-5 text-[#13131880]">
+                <i class="fa-solid fa-star pr-2 text-[#F99808]"></i>5.0
+                <i class="fa-solid fa-eye pr-2"></i>20
+                <i class="fa-regular fa-heart pr-2"></i>200
+              </p>
+              <h2 class="card-title font-extrabold text-[20px]">
+                World Cup Flags Football
+              </h2>
+              <p class="flex-grow-0 text-[#13131899] font-medium text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis.
+              </p>
+              <p
+                class="flex-grow-0 space-x-4 text-[16px] text-[#13131880] font-medium"
+              >
+                <span class="text-[18px] text-[#FF4240] font-extrabold"
+                  >Price - $22.00</span
+                >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Delivery Fee : Free
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="#">
+          <div
+            class="card lg:card-side bg-base-100 lg:w-[573px] lg:h-[218px] shadow-none border border-[#1313181A] rounded-2xl lg:px-5"
+          >
+            <figure class="w-full lg:w-[250px] lg:h-[172px] my-5 lg:my-auto">
+              <img
+                src="Images\10.png"
+                alt="Movie"
+                class="w-auto lg:w-[180px] mr-auto ml-5 lg:mr-5"
+              />
+            </figure>
+            <div
+              class="card-body justify-center px-3 pt-2 lg:pt-6 pb-5 space-y-1"
+            >
+              <p class="flex-grow-0 space-x-5 text-[#13131880]">
+                <i class="fa-solid fa-star pr-2 text-[#F99808]"></i>5.0
+                <i class="fa-solid fa-eye pr-2"></i>20
+                <i class="fa-regular fa-heart pr-2"></i>200
+              </p>
+              <h2 class="card-title font-extrabold text-[20px]">
+                World Cup Flags Football
+              </h2>
+              <p class="flex-grow-0 text-[#13131899] font-medium text-[16px]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis.
+              </p>
+              <p
+                class="flex-grow-0 space-x-4 text-[16px] text-[#13131880] font-medium"
+              >
+                <span class="text-[18px] text-[#FF4240] font-extrabold"
+                  >Price - $22.00</span
+                >
+                <i class="fa-solid fa-cart-shopping"></i>
+                Delivery Fee : Free
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+      <!--Clients Question Section-->
+      <div
+        class="card bg-base-100 w-auto border-dashed border-2 border-x-0 rounded-none h-[166px] lg:h-[189px] justify-center mb-14"
+      >
+        <div class="card-body text-center flex-grow-0 lg:gap-4 lg:pt-0">
+          <h2 class="card-title mx-auto font-extrabold lg:text-4xl">
+            Clients Question
+          </h2>
+          <p
+            class="lg:h-7 lg:w-[602px] mx-auto text-[14px] lg:text-[16px] text-[#13131899] font-medium"
+          >
+            Dit amet consectetur. Condimentum dignissim adipiscing aliquam
+            turpis placerat dolor. Purus urna in sit nullam proin.
+          </p>
+        </div>
+      </div>
+      <!--FAQ Section-->
+      <div class="grid lg:grid-cols-12 gap-4 border rounded-2xl p-5">
+        <div class="lg:w-[441px] lg:col-span-5 my-auto">
+          <figure>
+            <img
+              src="Images\11.png"
+              alt="FAQ-Image"
+              class="w-3/4 mx-auto lg:w-[441px] lg:h-auto lg:ml-2"
+            />
+          </figure>
+        </div>
+        <div class="lg:col-span-7 space-y-4">
+          <div class="collapse collapse-plus rounded-none border-b">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title text-xl font-bold">Our Equipment</div>
+            <div class="collapse-content">
+              <p class="lg:w-[518px] lg:text-[16px] text-[#13131899]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna.
+              </p>
+            </div>
+          </div>
+          <div class="collapse collapse-plus rounded-none border-b">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">Hockey Training</div>
+            <div class="collapse-content">
+              <p class="lg:w-[518px] lg:text-[16px] text-[#13131899]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna.
+              </p>
+            </div>
+          </div>
+          <div class="collapse collapse-plus rounded-none border-b">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">Private Lessons</div>
+            <div class="collapse-content">
+              <p class="lg:w-[518px] lg:text-[16px] text-[#13131899]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna.
+              </p>
+            </div>
+          </div>
+          <div class="collapse collapse-plus rounded-none border-b">
+            <input type="radio" name="my-accordion-3" checked="checked" />
+            <div class="collapse-title text-xl font-bold">Ski Touring</div>
+            <div class="collapse-content">
+              <p class="lg:w-[518px] lg:text-[16px] text-[#13131899]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna.
+              </p>
+            </div>
+          </div>
+          <div class="collapse collapse-plus rounded-none border-b">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">Booking</div>
+            <div class="collapse-content">
+              <p class="lg:w-[518px] lg:text-[16px] text-[#13131899]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna.
+              </p>
+            </div>
+          </div>
+          <div class="collapse collapse-plus rounded-none">
+            <input type="radio" name="my-accordion-3" />
+            <div class="collapse-title text-xl font-bold">Pricings</div>
+            <div class="collapse-content">
+              <p class="lg:w-[518px] lg:text-[16px] text-[#13131899]">
+                Dolor sit amet consectetur. Ut urna diam quis sagittis. Elit
+                elit enim sagittis turpis in magna.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Get In Touch Section-->
+      <div
+        class="card bg-base-100 w-auto border-dashed border-2 border-x-0 rounded-none h-[166px] lg:h-[189px] justify-center my-14"
+      >
+        <div class="card-body text-center flex-grow-0 lg:gap-4 lg:pt-0">
+          <h2 class="card-title mx-auto font-extrabold lg:text-4xl">
+            Get In Touch
+          </h2>
+          <p
+            class="lg:h-7 lg:w-[602px] mx-auto text-[14px] lg:text-[16px] text-[#13131899] font-medium"
+          >
+            Dit amet consectetur. Condimentum dignissim adipiscing aliquam
+            turpis placerat dolor. Purus urna in sit nullam proin.
+          </p>
+        </div>
+      </div>
+      <!--Contact Form-->
+      <div class="grid lg:grid-cols-12 gap-4 mb-14 w-[335px] lg:w-auto mx-auto">
+        <div class="lg:col-span-5 space-y-5 border rounded-2xl p-5 lg:p-10">
+          <div class="card bg-[#BCED6D1A] lg:w-auto">
+            <figure class="px-10 pt-7">
+              <img
+                src="Images\Group 1171275317.png"
+                alt="Shoes"
+                class="rounded-xl mr-auto w-[46px]"
+              />
+            </figure>
+            <div class="card-body items-start text-start pt-5">
+              <h2 class="card-title text-[#13131866] text-[16px]">
+                Phone Number :
+              </h2>
+              <p class="text-[18px] font-extrabold">(+62) 123-321-543</p>
+            </div>
+          </div>
+          <div class="card bg-[#FDDD5F1A] lg:w-auto">
+            <figure class="px-8 pt-7">
+              <img
+                src="Images\Group 1171275318.png"
+                alt="Shoes"
+                class="rounded-xl mr-auto w-[46px]"
+              />
+            </figure>
+            <div class="card-body items-start text-start pt-5">
+              <h2 class="card-title text-[#13131866] text-[16px]">Email</h2>
+              <p class="text-[18px] font-extrabold">hockeys@support.com</p>
+            </div>
+          </div>
+          <div class="card bg-[#629CF31A] lg:w-auto">
+            <figure class="px-8 pt-7">
+              <img
+                src="Images\Group 1171275321.png"
+                alt="Shoes"
+                class="rounded-xl mr-auto w-[46px]"
+              />
+            </figure>
+            <div class="card-body items-start text-start pt-5">
+              <h2 class="card-title text-[#13131866] text-[16px]">
+                Location :
+              </h2>
+              <p class="text-[18px] font-extrabold">
+                152/1 Mohakhali Wireless Gate
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-7">
+          <div class="isolate bg-white lg:p-6 pt-5 lg:py-0 lg:px-0">
+            <form action="#" method="POST" class="mx-auto mt-0 w-auto lg:pl-3">
+              <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div>
+                  <label
+                    for="first-name"
+                    class="block font-bold text-[20px] text-gray-900"
+                    >First name</label
+                  >
+                  <div class="mt-2.5">
+                    <input
+                      type="text"
+                      name="first-name"
+                      id="first-name"
+                      autocomplete="given-name"
+                      placeholder="Enter your full name"
+                      class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm placeholder:text-gray-400 focus:ring-2 focus:ring-[#FF4240] focus:outline-none sm:text-sm/6 bg-slate-100"
+                    />
+                  </div>
+                </div>
+                <div class="">
+                  <label
+                    for="email"
+                    class="block font-bold text-[20px] text-gray-900"
+                    >Email</label
+                  >
+                  <div class="mt-2.5">
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      autocomplete="email"
+                      placeholder="Enter your email"
+                      class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm bg-slate-100 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#FF4240] sm:text-sm/6 focus:outline-none"
+                    />
+                  </div>
+                </div>
+                <div class="">
+                  <label
+                    for="company"
+                    class="block font-bold text-[20px] text-gray-900"
+                    >Subject</label
+                  >
+                  <div class="mt-2.5">
+                    <input
+                      type="text"
+                      name="company"
+                      id="company"
+                      placeholder="Enter your subject"
+                      autocomplete="organization"
+                      class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm bg-slate-100 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#FF4240] sm:text-sm/6 focus:outline-none"
+                    />
+                  </div>
+                </div>
+                <div class="">
+                  <label
+                    for="phone"
+                    class="block font-bold text-[20px] text-gray-900"
+                    >Phone Number</label
+                  >
+                  <div class="mt-2.5">
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="Enter your phone number"
+                      pattern="[0-9]{11}"
+                      autocomplete="tel"
+                      class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm bg-slate-100 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#FF4240] sm:text-sm/6 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label
+                    for="message"
+                    class="block font-bold text-[20px] text-gray-900"
+                    >Message</label
+                  >
+                  <div class="mt-2.5">
+                    <textarea
+                      name="message"
+                      placeholder="Write your message"
+                      id="message"
+                      rows="15"
+                      class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm bg-slate-100 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#FF4240] sm:text-sm/6 focus:outline-none"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="mt-5">
+                <button
+                  type="submit"
+                  class="block w-full rounded-md bg-red-600 px-3.5 py-5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--Social Media link starts here-->
+      <div
+        class="card bg-[#13131808] w-auto rounded- h-[166px] lg:h-[189px] justify-center my-14"
+      >
+        <div class="card-body text-center flex-grow-0 gap-4 lg:gap-6">
+          <h2 class="card-title mx-auto font-extrabold text-[24px]">
+            Social Media
+          </h2>
+          <div class="flex justify-center gap-7 text-2xl">
+            <div>
+              <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            </div>
+            <div>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <div>
+              <a href="#"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <div>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="bg-[#131318] py-10">
+      <footer
+        class="footer bg-[#131318] text-neutral-content lg:py-10 lg:w-[1170px] m-auto lg:space-x-24 gap-16 lg:gap-0"
+      >
+        <nav class="gap-6 lg:pr-5 text-center lg:text-start">
+          <h6 class="text-[28px] font-extrabold mx-auto lg:mx-0">
+            Get In Touch
+          </h6>
+          <p class="text-[#FFFFFF99] text-[16px] lg:w-[346px] leading-8">
+            Dit amet consectetur. Condimentum adipiscing aliquam turpis placerat
+            dolor. Purus urna in sit nullam proin.
+          </p>
+          <h3 class="text-[16px] mx-auto lg:mx-0">
+            <i class="fa-regular fa-envelope mr-2 text-[#FF4240] text-[16px]">
+            </i
+            >hockeys@support.com
+          </h3>
+          <h3 class="text-[16px] mx-auto lg:mx-0">
+            <i class="fa-solid fa-phone mr-2 text-[#FF4240] text-[16px]"></i
+            >(+62)123-321-543
+          </h3>
+        </nav>
+        <nav class="mx-auto">
+          <footer class="footer lg:gap-32 flex lg:w-auto gap-0">
+            <div class="text-[#FFFFFF99] gap-5 w-[140px] lg:pl-5 lg:w-auto">
+              <h6 class="text-xl font-extrabold text-white mx-auto lg:mx-0">
+                Company
+              </h6>
+              <a class="link link-hover mx-auto lg:mx-0">About us</a>
+              <a class="link link-hover mx-auto lg:mx-0">Leadership</a>
+              <a class="link link-hover mx-auto lg:mx-0">Careers</a>
+              <a class="link link-hover mx-auto lg:mx-0">News & Article</a>
+              <a class="link link-hover mx-auto lg:mx-0">Legal Notice</a>
+            </div>
+            <div class="text-[#FFFFFF99] gap-5 w-[140px] lg:pl-5 lg:w-auto">
+              <h6 class="text-xl font-extrabold text-white mx-auto lg:mx-0">
+                Support
+              </h6>
+              <a class="link link-hover mx-auto lg:mx-0">Help Center</a>
+              <a class="link link-hover mx-auto lg:mx-0">FAQ</a>
+              <a class="link link-hover mx-auto lg:mx-0">Ticket Support</a>
+              <a class="link link-hover mx-auto lg:mx-0">Contact Us</a>
+            </div>
+          </footer>
+        </nav>
+
+        <nav class="text-[#FFFFFF99] gap-5 lg:pl-5 w-full lg:w-auto">
+          <h6 class="text-xl font-extrabold text-white mx-auto lg:mx-0">
+            Services
+          </h6>
+          <a class="link link-hover mx-auto lg:mx-0">Academy</a>
+          <a class="link link-hover mx-auto lg:mx-0">Group Lesson</a>
+          <a class="link link-hover mx-auto lg:mx-0">Private Lesson</a>
+          <a class="link link-hover mx-auto lg:mx-0">Hockeys for kids</a>
+          <a class="link link-hover mx-auto lg:mx-0">Hockeys for Adult</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>
